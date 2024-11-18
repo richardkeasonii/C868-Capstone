@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helloworldjfxtemplate.controller.CustomerController">
+<AnchorPane prefHeight="401.0" prefWidth="600.0">
+    <Label layoutX="69.0" layoutY="35.0" text="Customer Form" />
+    <Label fx:id="nameLabel" layoutX="34.0" layoutY="83.0" prefHeight="17.0" prefWidth="90.0" text="Customer Name" />
+    <Label layoutX="72.0" layoutY="132.0" prefHeight="17.0" prefWidth="53.0" text="Address" />
+    <Label layoutX="56.0" layoutY="184.0" text="Postal Code" />
+    <Label layoutX="39.0" layoutY="234.0" text="Phone Number" />
+    <TextField fx:id="nameField" layoutX="136.0" layoutY="79.0" onAction="#onClickNameField" />
+    <TextField fx:id="addressField" layoutX="136.0" layoutY="128.0" onAction="#onClickAddressField" />
+    <TextField fx:id="postalField" layoutX="136.0" layoutY="180.0" onAction="#onClickPostalField" />
+    <TextField fx:id="phoneField" layoutX="136.0" layoutY="230.0" onAction="#onClickPhoneField" />
+    <Label layoutX="336.0" layoutY="83.0" text="Customer ID" />
+    <Label layoutX="360.0" layoutY="132.0" text="Country" />
+    <Label layoutX="311.0" layoutY="186.0" text="First-Level Division" />
+    <TextField fx:id="idField" disable="true" layoutX="425.0" layoutY="79.0" />
+    <ComboBox fx:id="countryCombo" layoutX="425.0" layoutY="128.0" onAction="#onClickCountry" prefWidth="150.0" />
+    <ComboBox fx:id="divisionCombo" layoutX="425.0" layoutY="182.0" prefWidth="150.0" />
+    <Button fx:id="saveButton" layoutX="344.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+    <Button fx:id="cancelButton" layoutX="425.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+      <RadioButton fx:id="individualRadio" layoutX="333.0" layoutY="234.0" mnemonicParsing="false" onAction="#onClickIndividualRadio" text="Individual" />
+      <RadioButton fx:id="companyRadio" layoutX="464.0" layoutY="234.0" mnemonicParsing="false" onAction="#onClickCompanyRadio" text="Company" />
+</AnchorPane>
+</VBox>

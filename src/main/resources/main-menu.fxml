@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helloworldjfxtemplate.controller.MainController">
+<children>
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="750.0" VBox.vgrow="ALWAYS">
+        <children>
+            <Label layoutX="149.0" layoutY="21.0" prefHeight="39.0" prefWidth="51.0" text="Menu">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Button layoutX="685.0" layoutY="550.0" mnemonicParsing="false" onAction="#onExit" text="Exit" />
+            <TableView fx:id="customerTable" layoutX="14.0" layoutY="116.0" prefHeight="200.0" prefWidth="320.0">
+                <columns>
+                    <TableColumn fx:id="customerID" prefWidth="75.0" text="ID" />
+                    <TableColumn fx:id="customerName" prefWidth="75.0" text="Name" />
+                    <TableColumn fx:id="customerAddress" prefWidth="75.0" text="Address" />
+                    <TableColumn fx:id="customerPostal" prefWidth="75.0" text="Postal Code" />
+                    <TableColumn fx:id="customerPhone" prefWidth="75.0" text="Phone #" />
+                    <TableColumn fx:id="customerCreated" prefWidth="75.0" text="Create Date" />
+                    <TableColumn fx:id="customerCreatedBy" prefWidth="75.0" text="Created By" />
+                    <TableColumn fx:id="customerUpdated" prefWidth="75.0" text="Last Updated" />
+                    <TableColumn fx:id="customerUpdatedBy" prefWidth="75.0" text="Updated By" />
+                    <TableColumn fx:id="customerDivision" prefWidth="75.0" text="Division ID" />
+                    <TableColumn fx:id="customerType" prefWidth="75.0" text="Customer Type" />
+                </columns>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </TableView>
+            <TableView fx:id="appointmentTable" layoutX="414.0" layoutY="116.0" prefHeight="200.0" prefWidth="320.0">
+                <columns>
+                    <TableColumn fx:id="appointmentID" prefWidth="75.0" text="Appointment ID" />
+                    <TableColumn fx:id="appointmentTitle" prefWidth="75.0" text="Title" />
+                    <TableColumn fx:id="appointmentDesc" prefWidth="75.0" text="Description" />
+                    <TableColumn fx:id="appointmentLocation" prefWidth="75.0" text="Location" />
+                    <TableColumn fx:id="appointmentType" prefWidth="75.0" text="Type" />
+                    <TableColumn fx:id="appointmentStart" prefWidth="75.0" text="Start Time" />
+                    <TableColumn fx:id="appointmentEnd" prefWidth="75.0" text="End Time" />
+                    <TableColumn fx:id="appointmentCreated" prefWidth="75.0" text="Create Date" />
+                    <TableColumn fx:id="appointmentCreatedBy" prefWidth="75.0" text="Created By" />
+                    <TableColumn fx:id="appointmentUpdated" prefWidth="75.0" text="Last Updated" />
+                    <TableColumn fx:id="appointmentUpdatedBy" prefWidth="75.0" text="Updated By" />
+                    <TableColumn fx:id="appointmentCustomer" prefWidth="75.0" text="Customer ID" />
+                    <TableColumn fx:id="appointmentUser" prefWidth="75.0" text="User ID" />
+                    <TableColumn fx:id="appointmentContact" prefWidth="75.0" text="Contact ID" />
+                </columns>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </TableView>
+            <Button layoutX="129.0" layoutY="330.0" mnemonicParsing="false" onAction="#onAddCustomer" text="Add" />
+            <Button layoutX="188.0" layoutY="330.0" mnemonicParsing="false" onAction="#onModifyCustomer" text="Modify" />
+            <Button layoutX="272.0" layoutY="330.0" mnemonicParsing="false" onAction="#onDeleteCustomer" text="Delete" />
+            <Button layoutX="515.0" layoutY="330.0" mnemonicParsing="false" onAction="#onAddAppointment" text="Add" />
+            <Button layoutX="582.0" layoutY="330.0" mnemonicParsing="false" onAction="#onModifyAppointment" text="Modify" />
+            <Button layoutX="665.0" layoutY="330.0" mnemonicParsing="false" onAction="#onDeleteAppointment" text="Delete" />
+            <RadioButton fx:id="monthRadio" layoutX="414.0" layoutY="59.0" mnemonicParsing="false" onAction="#onClickMonth" selected="true" text="Current Month" />
+            <RadioButton fx:id="weekRadio" layoutX="528.0" layoutY="59.0" mnemonicParsing="false" onAction="#onClickWeek" text="Weeks" />
+            <Spinner fx:id="timeSpinner" layoutX="611.0" layoutY="55.0" prefHeight="25.0" prefWidth="109.0" />
+            <ChoiceBox fx:id="reportChoice" layoutX="50.0" layoutY="450.0" prefWidth="150.0" />
+            <TextArea fx:id="reportText" layoutX="250.0" layoutY="375.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="414.0" layoutY="32.0" text="Filter By:" underline="true" />
+            <Label layoutX="611.0" layoutY="32.0" text="Number of Weeks:" underline="true" />
+            <Label layoutX="132.0" layoutY="93.0" text="Customer Table">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="523.0" layoutY="93.0" text="Appointment Table" />
+            <Label layoutX="50.0" layoutY="419.0" text="Generate a Report:" />
+            <TextField fx:id="searchField" layoutX="172.0" layoutY="64.0" prefHeight="25.0" prefWidth="165.0" promptText="Type name here" onAction="#onClickSearchField" />
+            <Label layoutX="14.0" layoutY="68.0" text="Search Customer by Name:" underline="true" />
+        </children>
+    </AnchorPane>
+</children>
+</VBox>

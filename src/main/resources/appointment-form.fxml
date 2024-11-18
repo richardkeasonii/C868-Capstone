@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.helloworldjfxtemplate.controller.AppointmentController">
+    <AnchorPane>
+        <Label layoutX="69.0" layoutY="35.0" text="Appointment Form" />
+        <Label layoutX="24.0" layoutY="83.0" prefHeight="17.0" prefWidth="99.0" text="Appointment Title" />
+        <Label layoutX="58.0" layoutY="132.0" prefHeight="17.0" prefWidth="64.0" text="Description" />
+        <Label layoutX="70.0" layoutY="184.0" text="Location" />
+        <Label layoutX="86.0" layoutY="234.0" prefHeight="17.0" prefWidth="46.0" text="Type" />
+        <TextField fx:id="titleField" layoutX="136.0" layoutY="79.0" onAction="#onClickTitleField" />
+        <TextField fx:id="descField" layoutX="136.0" layoutY="128.0" onAction="#onClickDescField" />
+        <TextField fx:id="locationField" layoutX="136.0" layoutY="180.0" onAction="#onClickLocationField" />
+        <TextField fx:id="typeField" layoutX="136.0" layoutY="230.0" onAction="#onClickTypeField" />
+        <Label layoutX="319.0" layoutY="83.0" text="Appointment ID" />
+        <Label layoutX="308.0" layoutY="132.0" text="Start Date and Time" />
+        <Label layoutX="311.0" layoutY="186.0" text="End Date and Time" />
+        <TextField fx:id="idField" disable="true" layoutX="425.0" layoutY="79.0" />
+        <ComboBox fx:id="contactCombo" layoutX="425.0" layoutY="230.0" onAction="#onClickContact" prefWidth="150.0" />
+        <Button fx:id="saveButton" layoutX="344.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickSave" text="Save" />
+        <Button fx:id="cancelButton" layoutX="425.0" layoutY="343.0" mnemonicParsing="false" onAction="#onClickCancel" text="Cancel" />
+        <Label layoutX="74.0" layoutY="282.0" text="User_ID" />
+        <TextField fx:id="userField" layoutX="136.0" layoutY="278.0" onAction="#onClickUserField" />
+        <TextField fx:id="endField" layoutX="426.0" layoutY="182.0" onAction="#onClickEndField" />
+        <TextField fx:id="startField" layoutX="426.0" layoutY="128.0" onAction="#onClickStartField" />
+        <Label layoutX="368.0" layoutY="234.0" prefHeight="17.0" prefWidth="46.0" text="Contact" />
+        <Label layoutX="344.0" layoutY="282.0" text="Customer_ID" />
+        <TextField fx:id="customerField" layoutX="426.0" layoutY="278.0" onAction="#onClickCustomer" />
+      <Label layoutX="337.0" layoutY="35.0" text="Date and Time format: yyyy-MM-dd HH:mm" underline="true" />
+    </AnchorPane>
+</VBox>
