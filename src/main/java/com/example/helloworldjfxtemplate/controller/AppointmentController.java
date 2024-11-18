@@ -47,18 +47,22 @@ public class AppointmentController implements Initializable {
     public ComboBox<String> contactCombo;
     public Button saveButton;
     public Button cancelButton;
-    public TextField userField;
+//    public TextField userField;
     public TextField endField;
     public TextField startField;
-    public TextField customerField;
+//    public TextField customerField;
+    public ComboBox<Integer> userCombo;
+    public ComboBox<Integer> customerCombo;
+    private ObservableList<Integer> users = FXCollections.observableArrayList();
+    private ObservableList<Integer> customers = FXCollections.observableArrayList();
     private ObservableList<String> contacts = FXCollections.observableArrayList();
     private String title;
     private String description;
     private String location;
     private String type;
     private String contact;
-    private int userId;
-    private int customerId;
+    private Integer userId;
+    private Integer customerId;
     private LocalDateTime start;
     private LocalDateTime end;
     private static Appointment thisToModify = null;
@@ -165,36 +169,36 @@ public class AppointmentController implements Initializable {
 //            }
 //    }
 
-    /**
-     * Gathers the user id from the TextField. Shows an alert and prevents saving if the input was not an integer.
-     */
-    public void onClickUserField() {
-        try {
-            userId = Integer.parseInt(userField.getText());
-            String query = "SELECT User_ID FROM users WHERE EXISTS " +
-                    "(SELECT User_ID FROM users WHERE User_ID = ?)";
-
-            try (PreparedStatement statement = JDBC.getConnection().prepareStatement(query)) {
-                statement.setInt(1, userId);
-
-                try (ResultSet result = statement.executeQuery()) {
-                    if (!result.isClosed() && result.next()) {
-                        // User ID exists, handle as necessary
-                        return;
-                    } else {
-                        AlertHelper.showError("Error", "User ID does not exist.");
-                        canSave = false;
-                    }
-                }
-            } catch (SQLException e) {
-                AlertHelper.showError("Error", "Database error occurred while checking User ID.");
-                canSave = false;
-            }
-        } catch (NumberFormatException e) {
-            AlertHelper.showAlert("Warning", "The User ID field must be populated with an integer.");
-            canSave = false;
-        }
-    }
+//    /**
+//     * Gathers the user id from the TextField. Shows an alert and prevents saving if the input was not an integer.
+//     */
+//    public void onClickUserField() {
+//        try {
+//            userId = Integer.parseInt(userField.getText());
+//            String query = "SELECT User_ID FROM users WHERE EXISTS " +
+//                    "(SELECT User_ID FROM users WHERE User_ID = ?)";
+//
+//            try (PreparedStatement statement = JDBC.getConnection().prepareStatement(query)) {
+//                statement.setInt(1, userId);
+//
+//                try (ResultSet result = statement.executeQuery()) {
+//                    if (!result.isClosed() && result.next()) {
+//                        // User ID exists, handle as necessary
+//                        return;
+//                    } else {
+//                        AlertHelper.showError("Error", "User ID does not exist.");
+//                        canSave = false;
+//                    }
+//                }
+//            } catch (SQLException e) {
+//                AlertHelper.showError("Error", "Database error occurred while checking User ID.");
+//                canSave = false;
+//            }
+//        } catch (NumberFormatException e) {
+//            AlertHelper.showAlert("Warning", "The User ID field must be populated with an integer.");
+//            canSave = false;
+//        }
+//    }
 
     /**
      * Gathers the start time and date from the TextField. Shows an alert and prevents saving if the time is in
@@ -233,48 +237,48 @@ public class AppointmentController implements Initializable {
         }
     }
 
-    /**
-     * Gathers the customer id from the TextField. Shows an alert and prevents saving if the input was not an integer.
-     */
-    public void onClickCustomer() {
+//    /**
+//     * Gathers the customer id from the TextField. Shows an alert and prevents saving if the input was not an integer.
+//     */
+//    public void onClickCustomer() {
+////        try {
+////            customerId = Integer.parseInt(customerField.getText());
+////            try {
+////                JDBC.makeConnection();
+////                Query.makeQuery("SELECT Customer_ID FROM customers WHERE EXISTS " +
+////                        "(SELECT Customer_ID FROM customers WHERE Customer_ID = " + customerId + ")");
+////                ResultSet result = Query.getResult();
+////                if (!result.isClosed() && result.next()) {
+////                    return;
+////                }
+////            } catch (SQLException e) {
+////                AlertHelper.showAlert("Error", "Customer ID does not exist.");
+////                canSave = false;
+////            }
+////        } catch (NumberFormatException e) {
+////            AlertHelper.showAlert("Warning", "The Customer ID field must be populated with an integer.");
+////            canSave = false;
+////        }
 //        try {
 //            customerId = Integer.parseInt(customerField.getText());
-//            try {
-//                JDBC.makeConnection();
-//                Query.makeQuery("SELECT Customer_ID FROM customers WHERE EXISTS " +
-//                        "(SELECT Customer_ID FROM customers WHERE Customer_ID = " + customerId + ")");
-//                ResultSet result = Query.getResult();
-//                if (!result.isClosed() && result.next()) {
-//                    return;
+//            String query = "SELECT Customer_ID FROM customers WHERE Customer_ID = ?";
+//            try (PreparedStatement statement = JDBC.getConnection().prepareStatement(query)) {
+//                statement.setInt(1, customerId);
+//                try (ResultSet result = statement.executeQuery()) {
+//                    if (!result.next()) {
+//                        AlertHelper.showError("Error", "Customer ID does not exist.");
+//                        canSave = false;
+//                    }
 //                }
 //            } catch (SQLException e) {
-//                AlertHelper.showAlert("Error", "Customer ID does not exist.");
+//                AlertHelper.showError("Error", "Database error occurred while checking Customer ID.");
 //                canSave = false;
 //            }
 //        } catch (NumberFormatException e) {
 //            AlertHelper.showAlert("Warning", "The Customer ID field must be populated with an integer.");
 //            canSave = false;
 //        }
-        try {
-            customerId = Integer.parseInt(customerField.getText());
-            String query = "SELECT Customer_ID FROM customers WHERE Customer_ID = ?";
-            try (PreparedStatement statement = JDBC.getConnection().prepareStatement(query)) {
-                statement.setInt(1, customerId);
-                try (ResultSet result = statement.executeQuery()) {
-                    if (!result.next()) {
-                        AlertHelper.showError("Error", "Customer ID does not exist.");
-                        canSave = false;
-                    }
-                }
-            } catch (SQLException e) {
-                AlertHelper.showError("Error", "Database error occurred while checking Customer ID.");
-                canSave = false;
-            }
-        } catch (NumberFormatException e) {
-            AlertHelper.showAlert("Warning", "The Customer ID field must be populated with an integer.");
-            canSave = false;
-        }
-    }
+//    }
 
     /**
      * Handles the saving of Appointments created or modified within the form. They are then stored within the database.
@@ -292,8 +296,12 @@ public class AppointmentController implements Initializable {
         onClickLocationField();
         onClickTitleField();
         onClickTypeField();
-        onClickUserField();
-        onClickCustomer();
+//        onClickUserField();
+//        onClickCustomer();
+
+        onClickCustomerCombo();
+        onClickUserCombo();
+
         if (canSave) {
             if (end.isBefore(start)) {
                 AlertHelper.showAlert("Warning", "The End time for the appointment should be after the Start time.");
@@ -494,7 +502,49 @@ public class AppointmentController implements Initializable {
             e.printStackTrace();
         }
 
+        sqlStatement = "SELECT * FROM users";
+        try (PreparedStatement stmt = JDBC.getConnection().prepareStatement(sqlStatement);
+             ResultSet result = stmt.executeQuery()) {
+
+            while (result.next()) {
+                String userName = result.getString("User_Name");
+                Integer userId = result.getInt("User_ID");
+                if (!userName.equals("admin") || LoginController.getUsername().equals("admin"))
+                {
+                users.add(userId);
+                }
+
+            }
+
+        } catch (SQLException e) {
+            AlertHelper.showError("Error", "There was a database connection while populating the User_ID ComboBox.");
+            e.printStackTrace();
+        }
+
+        sqlStatement = "SELECT * FROM customers";
+        try (PreparedStatement stmt = JDBC.getConnection().prepareStatement(sqlStatement);
+             ResultSet result = stmt.executeQuery()) {
+
+            while (result.next()) {
+                String customerType = result.getString("Customer_Type");
+                Integer customerId = result.getInt("Customer_ID");
+                if (customerType.equals("Individual") || LoginController.getUsername().equals("admin")) {
+                    customers.add(customerId);
+                }
+            }
+
+        } catch (SQLException e) {
+            AlertHelper.showError("Error", "There was a database connection while populating the Customer_ID ComboBox.");
+            e.printStackTrace();
+        }
+
+
+
+
         contactCombo.setItems(contacts);
+        userCombo.setItems(users);
+        customerCombo.setItems(customers);
+
         if (isModify) {
             //POPULATE FIELDS HERE
             String startText = thisToModify.getAppointmentStart().toString().replace("T", " ");
@@ -502,11 +552,11 @@ public class AppointmentController implements Initializable {
             descField.setText(thisToModify.getAppointmentDesc());
             endField.setText(endText);
             startField.setText(startText);
-            customerField.setText(((Integer) thisToModify.getCustomerId()).toString());
+//            customerField.setText(((Integer) thisToModify.getCustomerId()).toString());
             locationField.setText(thisToModify.getAppointmentLocation());
             titleField.setText(thisToModify.getAppointmentTitle());
             typeField.setText(thisToModify.getAppointmentType());
-            userField.setText(((Integer) thisToModify.getUserId()).toString());
+//            userField.setText(((Integer) thisToModify.getUserId()).toString());
             idField.setText(((Integer) thisToModify.getAppointmentId()).toString());
 
             int contactId = thisToModify.getContactId();
@@ -522,6 +572,9 @@ public class AppointmentController implements Initializable {
             } catch (SQLException e) {
                 AlertHelper.showError("Error", "Database error occurred while getting contacts.");
             }
+
+            userCombo.getSelectionModel().select(thisToModify.getUserId());
+            customerCombo.getSelectionModel().select(thisToModify.getCustomerId());
 
 //            try {
 //                int contactId = thisToModify.getContactId();
@@ -556,5 +609,25 @@ public class AppointmentController implements Initializable {
         thisToModify = toModify;
     }
 
+    /**
+     * Implementation of check for if the user has selected from the Customer_ID ComboBox.
+     */
+    public void onClickCustomerCombo() {
+        customerId = customerCombo.getSelectionModel().getSelectedItem();
+        if (customerId == null) {
+            AlertHelper.showAlert("Warning", "Please choose a Customer to assign the Appointment to.");
+            canSave = false;
+        }
+    }
 
+    /**
+     * Implementation of check for if the user has selected from the User_ID ComboBox.
+     */
+    public void onClickUserCombo() {
+        userId = userCombo.getSelectionModel().getSelectedItem();
+        if (userId == null) {
+            AlertHelper.showAlert("Warning", "Please choose a User to assign the Appointment to.");
+            canSave = false;
+        }
+    }
 }
