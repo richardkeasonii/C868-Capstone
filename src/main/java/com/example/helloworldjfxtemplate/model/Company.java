@@ -1,5 +1,7 @@
 package com.example.helloworldjfxtemplate.model;
 
+import com.example.helloworldjfxtemplate.controller.LoginController;
+
 import java.time.LocalDateTime;
 
 public class Company extends Customer{
@@ -18,9 +20,17 @@ public class Company extends Customer{
      * @param customerDivision the customerDivision to set
      * @param customerType the customerType to set
      */
+
+    private int customerId;
     public Company(int customerId, String customerName, String customerAddress, String customerPostal, String customerPhone, LocalDateTime createDate, String createdBy, LocalDateTime updateDate, String updatedBy, int customerDivision, String customerType) {
         super(customerId, customerName, customerAddress, customerPostal, customerPhone, createDate, createdBy, updateDate, updatedBy, customerDivision, customerType);
+        this.customerId = customerId;
     }
 
-
+    public int getCustomerId() {
+        if (LoginController.getUsername().equals("admin")) {
+            return customerId;
+        }
+        return -1;
+    }
 }

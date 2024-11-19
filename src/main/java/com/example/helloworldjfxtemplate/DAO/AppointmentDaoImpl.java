@@ -1,5 +1,6 @@
 package com.example.helloworldjfxtemplate.DAO;
 
+import com.example.helloworldjfxtemplate.controller.LoginController;
 import com.example.helloworldjfxtemplate.helper.JDBC;
 import com.example.helloworldjfxtemplate.helper.TimeHelper;
 import com.example.helloworldjfxtemplate.model.Appointment;
@@ -64,7 +65,11 @@ public class AppointmentDaoImpl {
     public static ObservableList<Appointment> getAllAppointments() throws SQLException{
         ObservableList<Appointment> allAppointments= FXCollections.observableArrayList();
         JDBC.getConnection();
-        String sqlStatement="SELECT * FROM appointments";
+
+
+
+        String sqlStatement="SELECT appointments.*, customers.Customer_Type FROM appointments " +
+                "JOIN customers ON appointments.Customer_ID = customers.Customer_ID;";
         Query.makeQuery(sqlStatement);
         ResultSet result=Query.getResult();
         while(result.next()){
@@ -83,17 +88,25 @@ public class AppointmentDaoImpl {
             int customerId = result.getInt("Customer_ID");
             int userId = result.getInt("User_ID");
             int contactId = result.getInt("Contact_ID");
+            String customerType = result.getString("Customer_Type");
 
 //            LocalDateTime adjustAppointmentStart = TimeHelper.convertUTCToLocal(appointmentStart).toLocalDateTime();
 //            LocalDateTime adjustAppointmentEnd = TimeHelper.convertUTCToLocal(appointmentEnd).toLocalDateTime();
 //            LocalDateTime adjustCreateDate = TimeHelper.convertUTCToLocal(createDate).toLocalDateTime();
 //            LocalDateTime adjustUpdateDate = TimeHelper.convertUTCToLocal(updateDate).toLocalDateTime();
 
-            Appointment appointmentResult= new Appointment(appointmentId, appointmentTitle, appointmentDesc, appointmentLocation,
-                    appointmentType, appointmentStart, appointmentEnd, createDate, createdBy,
-                    updateDate, updatedBy, customerId,  userId, contactId);
-            allAppointments.add(appointmentResult);
 
+            if (LoginController.getUsername().equals("admin")) {
+                Appointment appointmentResult = new Appointment(appointmentId, appointmentTitle, appointmentDesc, appointmentLocation,
+                        appointmentType, appointmentStart, appointmentEnd, createDate, createdBy,
+                        updateDate, updatedBy, customerId, userId, contactId);
+                allAppointments.add(appointmentResult);
+            } else if (userId != 2 && !customerType.equals("Company")) {
+                Appointment appointmentResult = new Appointment(appointmentId, appointmentTitle, appointmentDesc, appointmentLocation,
+                        appointmentType, appointmentStart, appointmentEnd, createDate, createdBy,
+                        updateDate, updatedBy, customerId, userId, contactId);
+                allAppointments.add(appointmentResult);
+            }
         }
         return allAppointments;
     }

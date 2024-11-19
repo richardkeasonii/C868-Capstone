@@ -99,7 +99,8 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<Appointment, Integer> appointmentContact;
 
-    ObservableList<Customer> Customers = FXCollections.observableArrayList();
+    static ObservableList<Customer> AllCustomers = FXCollections.observableArrayList();
+    ObservableList<Customer> LimitedCustomers = FXCollections.observableArrayList();
     ObservableList<Customer> SearchedCustomers = FXCollections.observableArrayList();
     ObservableList<Appointment> Appointments = FXCollections.observableArrayList();
     ObservableList<Appointment> FilteredAppointments = FXCollections.observableArrayList();
@@ -147,13 +148,14 @@ public class MainController implements Initializable {
         customerType.setCellValueFactory(new PropertyValueFactory<>("customerType"));
 
         try {
-            Customers.addAll(CustomerDaoImpl.getAllCustomers());
-
+            LimitedCustomers.addAll(CustomerDaoImpl.getLimitedCustomers());
+            AllCustomers.clear();
+            AllCustomers.addAll(CustomerDaoImpl.getAllCustomers());
 
         } catch (Exception ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        customerTable.setItems(Customers);
+        customerTable.setItems(LimitedCustomers);
 
 
         appointmentID.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
@@ -405,7 +407,7 @@ public class MainController implements Initializable {
                         "and cannot be deleted.");
             } else {
                 Query.makeQuery("DELETE FROM customers WHERE Customer_ID = " + toDelete.getCustomerId());
-                Customers.removeIf(customer -> customer.getCustomerId() == toDelete.getCustomerId());
+                LimitedCustomers.removeIf(customer -> customer.getCustomerId() == toDelete.getCustomerId());
                 customerTable.refresh();
                 AlertHelper.showAlert("Deletion Successful", "Customer was successfully deleted.");
             }
@@ -529,9 +531,13 @@ public class MainController implements Initializable {
         String customerName = searchField.getText().toLowerCase();
 
         //Searches for Customers that non-case-sensitively contain the given string
-        SearchedCustomers.setAll(Customers.stream().filter(customer -> customer.getCustomerName().toLowerCase().contains(customerName)).collect(Collectors.toList()));
+        SearchedCustomers.setAll(LimitedCustomers.stream().filter(customer -> customer.getCustomerName().toLowerCase().contains(customerName)).collect(Collectors.toList()));
 
         //Updates the TableView
         customerTable.setItems(SearchedCustomers);
     }
+    public static ObservableList<Customer> getAllCustomers() {
+        return AllCustomers;
+    }
+
 }
