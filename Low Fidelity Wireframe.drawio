@@ -1,9 +1,93 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0" version="25.0.3">
   <diagram name="Page-1" id="Tc8628lddQ2aQrPP4HbS">
-    <mxGraphModel>
+    <mxGraphModel dx="2074" dy="1180" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="720" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-3" value="Customer Search Bar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="130" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-4" value="Customer Information Table" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="180" width="270" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-5" value="Add" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="390" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-6" value="Modify" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-7" value="Delete" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-8" value="Report ChoiceBox" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="510" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-9" value="Report Information" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="345" y="440" width="195" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-10" value="Add" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="545" y="390" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-11" value="Modify" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-12" value="Delete" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-13" value="Exit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="590" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-15" value="Appointment Information Table" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="180" width="260" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-17" value="Week Ticker" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="130" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-18" value="Week Label" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="100" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-20" value="Current Month" style="shape=ellipse;fillColor=#eeeeee;strokeColor=#999999;gradientColor=#cccccc;html=1;align=left;spacingLeft=4;fontSize=12;fontColor=#666666;labelPosition=right;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="470" y="135" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-22" value="Weeks" style="shape=ellipse;fillColor=#eeeeee;strokeColor=#999999;gradientColor=#cccccc;html=1;align=left;spacingLeft=4;fontSize=12;fontColor=#666666;labelPosition=right;shadow=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="135" width="15" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-24" value="Filter Label" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="475" y="100" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-25" value="Menu Title" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="100" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-26" value="Search Label" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="130" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-27" value="ID" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="180" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-28" value="Name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="180" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-29" value="Address" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="180" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-30" value="Postal.." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-31" value="Appointment ID" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="180" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-32" value="Title" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="180" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-33" value="Description" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="180" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lYQ9xpoaCt5Rx4kgQKp_-34" value="Location.." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="180" width="60" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
